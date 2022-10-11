@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  transition: all 0.2s linear;
+  line-height: 1.5;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+h1 {
+  letter-spacing: 1.5px;
+  color: rgb(255, 255, 255);
+  font-weight: 900;
+  font-style: normal;
+}
+
+h6 {
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 30px;
+}
+
+.nav-links {
+  cursor: pointer;
+  text-align: center;
+}
+
+.nav-links li {
+  display: inline-block;
+  padding: 20px 60px 0px 60px;
+}
+
+.nav-links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav-links li h6 {
+  transition: all 0.3s ease 0s;
+}
+
+.nav-links li h6:hover {
+  color: #f21667;
+  transform: scale(1.1);
+  animation-name: blinking;
+  animation-duration: 300ms;
+}
+
+@keyframes blinking {
+  0% {
+    color: #f21667;
+  }
+
+  50% {
+    color: white;
+  }
+
+  100% {
+    color: #f21667;
+  }
+}
+
+.logo {
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.logo h1:hover {
+  color: #f21667;
+  transform: scale(1.1);
+  animation-name: blinking;
+  animation-duration: 500ms;
+}
+
+@keyframes blinking {
+  0% {
+    color: #f21667;
+  }
+
+  50% {
+    color: white;
+  }
+
+  100% {
+    color: #000000;
+  }
+}
+
+.logo h1 {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  background-color: #0d0d0d;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 0.4rem;
+  gap: 13px;
+  overflow-x: auto;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+header {
+  background-color: white;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: rgb(255, 255, 255);
+}
+
+@media (max-width: 600px) {
+  .burger {
+    display: block;
+  }
+
+  /* Få den midterste block i burger menuen til at forsvinde */
+
+  .burger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  /* Få den øverste til at dreje sig, så den og den nederste kan forme et kryds */
+  .burger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .burger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* en fixed position gør at menuen bliver på skærmen idet man scroller ned, en left -100% gør at vi ikke kan se den */
+  .nav-links {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    gap: 0;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    transition: 0.1s;
+  }
+
+  /* vi vil ikke have linksene tæt på hinanden */
+
+  .nav-links li {
+    margin: 16px 0;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 2px;
+  border-radius: 2px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: rgb(255, 255, 255);
+}
+
+/* Styler burger i mindre vindue */
+
+@media (max-width: 900px) {
+  .burger {
+    display: block;
+    position: absolute;
+    top: 26px;
+    right: 8px;
+    left: auto;
+    padding: 0;
+    border: 0;
+    min-width: 20px;
+    min-height: 20px;
+    background: 0 0;
+    overflow: visible;
+    z-index: 999;
+  }
+
+  .burger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .burger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .burger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-links {
+    display: flex;
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    gap: 0;
+    flex-direction: column;
+    background-color: #0d0d0d;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    z-index: 999;
+  }
+
+  .nav-item {
+    margin: 16px 0;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+}
+
+/* Laver en media til h1 (logo) */
+
+@media (max-width: 555px) {
+  h1 {
+    font-size: 30px;
+    letter-spacing: 1.5px;
+    color: black;
+    font-weight: 700;
+  }
+}
